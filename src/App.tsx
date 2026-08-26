@@ -1,4 +1,5 @@
 import { Grid, GridItem } from '@chakra-ui/react'
+import GameGrid from './components/GameGrid'
 import NavBar from './components/NavBar'
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         aside
       </GridItem>
       <GridItem gridArea="main" bg={{ _light: 'gray.50', _dark: 'gray.800' }} color="fg" p="4" overflowY="auto">
-        main
+        <GameGrid />
       </GridItem>
     </Grid>
   )
