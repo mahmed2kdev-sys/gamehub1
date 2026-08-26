@@ -6,7 +6,7 @@ function App() {
     <Grid
       h="100dvh"
       templateAreas={{
-        base: '"nav" "main" "aside"',
+        base: '"nav" "main"',
         lg: '"nav nav" "aside main"',
       }}
       gridTemplateRows={{ base: 'auto 1fr auto', lg: 'auto 1fr' }}
@@ -15,10 +15,10 @@ function App() {
       <GridItem gridArea="nav" p="4">
         <NavBar />
       </GridItem>
-      <GridItem gridArea="aside" bg="orange.300" p="4" hideBelow="lg">
+      <GridItem gridArea="aside" bg={{ _light: 'orange.300', _dark: 'orange.600' }} p="4" hideBelow="lg">
         aside
       </GridItem>
-      <GridItem gridArea="main" bg="gray.50" p="4" overflowY="auto">
+      <GridItem gridArea="main" bg={{ _light: 'gray.50', _dark: 'gray.800' }} color="fg" p="4" overflowY="auto">
         main
       </GridItem>
     </Grid>
