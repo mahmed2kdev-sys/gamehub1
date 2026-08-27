@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { type AxiosRequestConfig } from "axios";
 
 const apiClient = axios.create({
   baseURL: "https://api.rawg.io/api",
@@ -6,5 +6,6 @@ const apiClient = axios.create({
 });
 
 export default {
-  get: <T>(url: string) => apiClient.get<T>(url).then((res) => res.data),
+  get: <T>(url: string, config?: AxiosRequestConfig) =>
+    apiClient.get<T>(url, config).then((res) => res.data),
 };
