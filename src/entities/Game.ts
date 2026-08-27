@@ -6,7 +6,9 @@ export interface Game {
   metacritic: number | null;
 }
 
-export interface FetchGamesResponse {
+export interface FetchResponse<T> {
   count: number;
-  results: Game[];
+  results: T[];
 }
+
+export type FetchGamesResponse = FetchResponse<Game>;
