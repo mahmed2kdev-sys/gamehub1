@@ -10,7 +10,7 @@ export default function GameGrid() {
   if (error) return <Text color="red.500">{error}</Text>;
 
   return (
-    <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={4} padding="10px">
+    <SimpleGrid columns={{ base: 1, sm: 2, lg: 3, xl: 5 }} gap={4} padding="10px">
       {isLoading
         ? Array.from({ length: 6 }).map((_, i) => (
             <GameCardContainer key={i}>
