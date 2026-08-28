@@ -1,8 +1,14 @@
-import { HStack, Image, List, Spinner, Text } from "@chakra-ui/react";
+import { Button, HStack, Image, List, Spinner, Text } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
+import type { Genre } from "../entities/Genre";
 
-export default function GenreList() {
+interface Props {
+  selectedGenre: Genre | null;
+  onSelectGenre: (genre: Genre) => void;
+}
+
+export default function GenreList({ selectedGenre, onSelectGenre }: Props) {
   const { genres, error, isLoading } = useGenres();
 
   if (error) return null;
@@ -19,10 +25,19 @@ export default function GenreList() {
               src={getCroppedImageUrl(genre.image_background)}
               alt={genre.name}
             />
-            <Text fontSize="lg">{genre.name}</Text>
+            <Button
+              variant="ghost"
+              justifyContent="flex-start"
+              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+              onClick={() => onSelectGenre(genre)}
+            >
+              <Text fontSize="lg">{genre.name}</Text>
+            </Button>
           </HStack>
         </List.Item>
       ))}
     </List.Root>
   );
 }
+
+// ponytail: no deselect toggle, add `if (selected===clicked) onSelect(null)` when needed
