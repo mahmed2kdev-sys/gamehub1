@@ -3,16 +3,14 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-import type { Genre } from "../entities/Genre";
-import type { Platform } from "../entities/Platform";
+import type { GameQuery } from "../entities/GameQuery";
 
 interface Props {
-  selectedGenre: Genre | null;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery;
 }
 
-export default function GameGrid({ selectedGenre, selectedPlatform }: Props) {
-  const { games, error, isLoading } = useGames(selectedGenre, selectedPlatform);
+export default function GameGrid({ gameQuery }: Props) {
+  const { games, error, isLoading } = useGames(gameQuery);
 
   if (error) return <Text color="red.500">{error}</Text>;
 

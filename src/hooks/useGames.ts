@@ -1,16 +1,12 @@
 import { useData } from "./useData";
 import type { Game } from "../entities/Game";
-import type { Genre } from "../entities/Genre";
-import type { Platform } from "../entities/Platform";
+import type { GameQuery } from "../entities/GameQuery";
 
-export default function useGames(
-  selectedGenre: Genre | null,
-  selectedPlatform: Platform | null
-) {
+export default function useGames(gameQuery: GameQuery) {
   const { data: games, error, isLoading } = useData<Game>(
     "/games",
-    { params: { genres: selectedGenre?.id, parent_platforms: selectedPlatform?.id } },
-    [selectedGenre?.id, selectedPlatform?.id]
+    { params: { genres: gameQuery.genre?.id, parent_platforms: gameQuery.platform?.id, ordering: gameQuery.sortOrder, search: gameQuery.searchText || undefined } },
+    [gameQuery]
   );
   return { games, error, isLoading };
 }
