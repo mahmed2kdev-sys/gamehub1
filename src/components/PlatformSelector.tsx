@@ -15,7 +15,7 @@ export default function PlatformSelector({ selectedPlatform, onSelectPlatform }:
 
   return (
     <NativeSelect.Root size="sm" maxW="200px">
-      <NativeSelect.Field borderColor="var(--border)"
+      <NativeSelect.Field borderWidth="0" bg={{ _light: "gray.100", _dark: "whiteAlpha.100" }}
         value={selectedPlatform?.id ?? ""}
         onChange={(e) => {
           const id = e.target.value ? Number(e.target.value) : null;

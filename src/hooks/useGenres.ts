@@ -1,7 +1,5 @@
-import { useData } from "./useData";
-import type { Genre } from "../entities/Genre";
+import { genres } from "../data/genres";
 
 export default function useGenres() {
-  const { data: genres, error, isLoading } = useData<Genre>("/genres");
-  return { genres, error, isLoading };
+  return { genres, error: null as string | null, isLoading: false } as const;
 }

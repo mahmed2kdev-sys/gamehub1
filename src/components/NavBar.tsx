@@ -23,7 +23,7 @@ const NavBar = ({ onSearch }: Props) => {
         }}
       >
         <InputGroup startElement={<BsSearch />}>
-          <Input ref={ref} placeholder="Search games..." borderRadius={20} variant="subtle" />
+          <Input ref={ref} placeholder="Search games..." borderRadius={20} variant="subtle" bg={{ _light: "gray.100", _dark: "whiteAlpha.100" }} borderWidth="0" />
         </InputGroup>
       </form>
       <ColorSwitchButton />
