@@ -4,6 +4,7 @@ export interface Game {
   background_image: string;
   parent_platforms: { platform: { id: number; name: string; slug: string } }[];
   metacritic: number | null;
+  rating_top: number;
 }
 
 export interface FetchResponse<T> {
